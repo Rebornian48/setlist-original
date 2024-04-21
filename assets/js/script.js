@@ -22,5 +22,5 @@ const diffDays2 = Math.round(Math.abs((nowDate - secondDate) / oneDay));
 
 document.getElementById('tglsatu').textContent = id1Date;
 document.getElementById('tgldua').textContent = id2Date;
-document.getElementById('satu').textContent = diffDays1 + ' hari';
-document.getElementById('dua').textContent = diffDays2 + ' hari';
+document.getElementById('satu').textContent = diffDays1 + ' hari yang lalu';
+document.getElementById('dua').textContent = diffDays2 + ' hari yang lalu';

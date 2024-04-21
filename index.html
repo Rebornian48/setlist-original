@@ -23,148 +23,76 @@
     <meta name="author" content="Rebornian48" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rebornian48</title>
+    <title>Rebornian48 - Setlist Original JKT48</title>
     <!-- Favicon -->
     <link
       rel="icon"
       href="https://avatars.githubusercontent.com/u/80138640"
       type="image/x-icon"
     />
-    <!-- Font Awesome icons -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v6.5.1/css/all.css"
-    />
-    <!-- Core theme CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
-    <div class="navbar bg-base-100">
-      <div class="flex-1">
-        <a class="btn btn-ghost text-xl">Rebornian48</a>
-      </div>
-      <div class="flex-none">
-        <ul class="menu menu-horizontal px-1">
-          <div class="dropdown mb-5">
-            <div tabindex="0" role="button" class="m-1">
-              Tema
-              <svg
-                width="12px"
-                height="12px"
-                class="h-2 w-2 fill-current opacity-60 inline-block"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 2048 2048"
-              >
-                <path
-                  d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"
-                ></path>
-              </svg>
-            </div>
-            <ul
-              tabindex="0"
-              class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52"
+    <div class="bg-gray-900 py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl lg:mx-0">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Setlist Original JKT48
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-gray-300">
+            Salah satu janji dari JOT (JKT48 Operational Team) yang belum terealisasi sampai sekarang.
+          </p>
+        </div>
+        <ul
+          role="list"
+          class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-2"
+        >
+          <li>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/l7lV9kaM2JU?si=pkf9EoLuaOR4L4Kv"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <h3
+              class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white"
             >
-              <li>
-                <input
-                  type="radio"
-                  name="theme-dropdown"
-                  class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="Gelap"
-                  value="dark"
-                />
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="theme-dropdown"
-                  class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="Terang"
-                  value="light"
-                />
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="theme-dropdown"
-                  class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="Malam"
-                  value="night"
-                />
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  name="theme-dropdown"
-                  class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                  aria-label="Senja"
-                  value="sunset"
-                />
-              </li>
-            </ul>
-          </div>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+              Pengumuman Pertama
+            </h3>
+            <p class="text-base leading-7 text-gray-300" id="tglsatu"></p>
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" id="satu"></h2>
+          </li>
+          <li>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/wMWVBa_Ujsc?si=eU7oQZRu0kiyGdKM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <h3
+              class="mt-6 text-lg font-semibold leading-8 tracking-tight text-white"
+            >
+              Pengumuman Kedua
+            </h3>
+            <p class="text-base leading-7 text-gray-300" id="tgldua"></p>
+            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl" id="dua">
+            </h2>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="container mx-auto text-center">
-      <h1 class="text-5xl font-bold">Setlist Original JKT48</h1>
-      <h1 class="text-5xl font-bold">&nbsp;</h1>
-      <div class="stats shadow">
-  
-        <div class="stat">
-          <div class="stat-title">Pengumuman pertama</div>
-          <div class="stat-value text-primary" id="satu"></div>
-          <div class="stat-desc" id="tglsatu"></div>
-        </div>
-        
-        <div class="stat">
-          <div class="stat-title">Pengumuman kedua</div>
-          <div class="stat-value text-secondary" id="dua"></div>
-          <div class="stat-desc" id="tgldua"></div>
-        </div>
-        
-      </div>
 
-
-      <h1 class="text-5xl font-bold">Pengumuman pertama</h1>
-      <p>&nbsp;</p>
-      <div class="video-container" align="center">
-        <video width="640" height="480" controls>
-          <source
-            src="https://rebornian48.github.io/assets/video/ori/2021.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <p>&nbsp;</p>
-      </div>
-      <h1 class="text-5xl font-bold">Pengumuman kedua</h1>
-      <p>&nbsp;</p>
-      <div class="video-container" align="center">
-        <video width="640" height="480" controls>
-          <source
-            src="https://rebornian48.github.io/assets/video/ori/2022.mp4"
-            type="video/mp4"
-          />
-        </video>
-        <p>&nbsp;</p>
-      </div>
-    </div>
-    <footer>
-      <p class="text-center">
-        Dibangun oleh
-        <a href="https://rebornian48.github.io/">Rebornian48</a>
-      </p>
-    </footer>
     <script src="./assets/js/script.js"></script>
     <script src="https://rebornian48.github.io/assets/js/luxon.js"></script>
   </body>
 </html>
+l
