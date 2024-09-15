@@ -1,93 +1,158 @@
-/* Credit goes to: Joshua Ward-https://codepen.io/joshuaward/pen/RgOxKd */
-body{
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 10%;
+}
+
+.glitch {
+  position: relative;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  animation: glitch 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
 }
 
-
-
-$base-duration: 300ms;
-
-// Colors
-$color-1: #E91E63;
-$color-2: #03A9F4;
-$color-3: #2ecc71;
-$black: #000;
-
-// Breakpoints
-$sm: new-breakpoint(min-width 320px);
-$med: new-breakpoint(min-width 768px);
-$lg: new-breakpoint(min-width 1024px);
-
-*, *:before, *:after {
-	box-sizing: border-box;
-	outline: none;
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitch 1s infinite linear alternate-reverse;
 }
 
-html {
-	font-family: 'Times New Roman', sans-serif;
-	font-size: 26px;
-	font-smooth: auto;
-	font-weight: bold;
-	line-height: 1.5;
-	color: white;
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 blue;
+  animation: glitch 1s infinite linear alternate-reverse;
 }
 
-body {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	height: 100vh;
-	// background-color:darken($color-1, 4%);
+@keyframes glitch {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+    transform: skew(0.3deg);
+  }
+  5% {
+    clip: rect(12px, 9999px, 60px, 0);
+    transform: skew(0.3deg);
+  }
+  10% {
+    clip: rect(92px, 9999px, 100px, 0);
+    transform: skew(0.3deg);
+  }
+  15% {
+    clip: rect(32px, 9999px, 40px, 0);
+    transform: skew(0.3deg);
+  }
+  20% {
+    clip: rect(72px, 9999px, 80px, 0);
+    transform: skew(0.3deg);
+  }
+  25% {
+    clip: rect(52px, 9999px, 60px, 0);
+    transform: skew(0.3deg);
+  }
+  30% {
+    clip: rect(12px, 9999px, 20px, 0);
+    transform: skew(0.3deg);
+  }
+  35% {
+    clip: rect(92px, 9999px, 100px, 0);
+    transform: skew(0.3deg);
+  }
+  40% {
+    clip: rect(42px, 9999px, 50px, 0);
+    transform: skew(0.3deg);
+  }
+  45% {
+    clip: rect(72px, 9999px, 80px, 0);
+    transform: skew(0.3deg);
+  }
+  50% {
+    clip: rect(52px, 9999px, 60px, 0);
+    transform: skew(0.3deg);
+  }
+  55% {
+    clip: rect(12px, 9999px, 20px, 0);
+    transform: skew(0.3deg);
+  }
+  60% {
+    clip: rect(92px, 9999px, 100px, 0);
+    transform: skew(0.3deg);
+  }
+  65% {
+    clip: rect(42px, 9999px, 50px, 0);
+    transform: skew(0.3deg);
+  }
+  70% {
+    clip: rect(72px, 9999px, 80px, 0);
+    transform: skew(0.3deg);
+  }
+  75% {
+    clip: rect(52px, 9999px, 60px, 0);
+    transform: skew(0.3deg);
+  }
+  80% {
+    clip: rect(12px, 9999px, 20px, 0);
+    transform: skew(0.3deg);
+  }
+  85% {
+    clip: rect(92px, 9999px, 100px, 0);
+    transform: skew(0.3deg);
+  }
+  90% {
+    clip: rect(42px, 9999px, 50px, 0);
+    transform: skew(0.3deg);
+  }
+  95% {
+    clip: rect(72px, 9999px, 80px, 0);
+    transform: skew(0.3deg);
+  }
+  100% {
+    clip: rect(52px, 9999px, 60px, 0);
+    transform: skew(0.3deg);
+  }
 }
 
-div {
-	font-size: 200px;	
-	&:hover {
-		&:before, &:after{
-			position: absolute;
-			content: '11:11';
-			transform: translate(-50%,-50%);
-			z-index: -1;
-		}
+.glitch img {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  animation: glitch 1s infinite;
+}
 
-		&:before {
-			top: 49.5%;
-			left: 49.5%;
-			color: rgba($color-1,0.8);
-			animation: distort1 $base-duration linear infinite;
-		}
+.glitch img::before,
+.glitch img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
 
-		&:after {
-			top: 50.5%;
-			left: 50.5%;
-			color: rgba($color-2,0.8);
-			animation: distort2 $base-duration linear infinite;
-		}
-	}
-	
-	@keyframes distort1 {
-		0%    { top: 49.5%; left: 49.5%; }
-		12.5% { top: 49.5%; left: 50%; }
-		25%   { top: 49.5%; left: 50.5%; }
-		37.5% { top: 50%; left: 50.5%; }
-		50%   { top: 50.5%; left: 50.5%; }
-		62.5% { top: 50.5%; left: 50%; }
-		75%   { top: 50.5%; left: 49.5%; }
-		87.5% { top: 50%; left: 49.5%; }
-		100%  { top: 49.5%; left: 49.5%; }
-	}
-	
-	@keyframes distort2 {
-		0%    { top: 50.5%; left: 50.5%; }
-		12.5% { top: 50%; left: 50.5%; }
-		25%   { top: 49.5%; left: 50.5%; }
-		37.5% { top: 49.5%; left: 50%; }
-		50%   { top: 49.5%; left: 49.5%; }
-		62.5% { top: 50%; left: 49.5%; }
-		75%   { top: 50.5%; left: 49.5%; }
-		87.5% { top: 50.5%; left: 50%; }
-		100%  { top: 50.5%; left: 50.5%; }
-	}
+.glitch img::before {
+  left: 2px;
+  animation: glitch 1s infinite linear alternate-reverse;
+}
+
+.glitch img::after {
+  left: -2px;
+  animation: glitch 1s infinite linear alternate-reverse;
 }
