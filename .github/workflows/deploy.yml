@@ -26,5 +26,5 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./dist/
-          server-dir: /public_html/doc/setlist-ori/
+          server-dir: /domains/doc.rebornian48.my.id/public_html/setlist-ori/
           dangerous-clean-slate: false
