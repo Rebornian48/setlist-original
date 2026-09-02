@@ -11,7 +11,7 @@ pengumuman, daftar lagu, teaser, dan karya fans.
 ## Fitur
 
 - **Hero** - judul utama + animasi gradient
-  (`gradient-text`, `bg-radial-glow`, `bg-grid`).
+  (`gradient-x`, radial glow, grid background).
 - **Timeline** - 4 momen kunci pengumuman/peristiwa.
   Tanggal dan hitungan "hari yang lalu" dihitung otomatis di runtime.
 - **Lagu** - 6 lagu setlist:
@@ -32,44 +32,69 @@ pengumuman, daftar lagu, teaser, dan karya fans.
 
 ```text
 .
-├── index.html          # halaman utama, satu file
-├── assets/
-│   ├── css/style.css   # animasi glitch + utility .img-center
-│   ├── js/script.js    # perhitungan tanggal + injeksi ke DOM
-│   └── img/            # aset gambar (logo, cover fanmade)
-└── README.md
+├── index.html              # entry point Vite
+├── src/
+│   ├── main.jsx            # bootstrap React
+│   ├── App.jsx             # seluruh UI + data timeline/lagu/fanmade
+│   └── index.css           # Tailwind directives + kelas .glitch
+├── public/
+│   ├── .htaccess           # SPA rewrite + cache untuk Hostinger
+│   └── assets/img/         # aset gambar (logo, cover fanmade)
+├── .github/workflows/
+│   └── deploy.yml          # build Vite + FTP deploy ke Hostinger
+├── vite.config.js          # base path /setlist-ori/
+├── tailwind.config.js      # tema ink/brand + animasi kustom
+└── postcss.config.js
 ```
 
 ## Teknologi
 
-- **HTML** statis single-page (`index.html`).
-- **TailwindCSS** via CDN dengan config inline
-  (warna `ink`, `brand`, animasi `gradient-x`, `float`, `pulse-slow`).
-- **DaisyUI** 4.10.2 untuk komponen carousel.
-- **Font Awesome** 6.6.0 untuk ikon.
+- **Vite 5** + **React 18** (single-page app).
+- **TailwindCSS 3** (build lokal via PostCSS + Autoprefixer),
+  konfigurasi warna `ink`, `brand`, animasi `gradient-x`, `float`,
+  `pulse-slow`.
+- **Font Awesome** 6.6.0 (CDN) untuk ikon.
 - **Google Fonts** - Inter + Space Grotesk.
-- **Luxon** (`luxon.js`) untuk utilitas tanggal.
 - **Google Analytics** (gtag, `G-QF6QHSQGFP`).
-- CSS kustom - kelas `.glitch` dengan pseudo-element + keyframe.
-- JS kustom - `Intl.DateTimeFormat("id-ID")` untuk format tanggal
-  Indonesia, hitung selisih hari, lalu inject ke elemen
-  `#tglsatu`..`#tglempat`, `#tglsongsatu`, `#tglsongdua`
-  dan counter `#satu`..`#empat`, `#songsatu`, `#songdua`.
+- CSS kustom - kelas `.glitch` dengan pseudo-element + keyframe
+  (di `src/index.css`).
+- Tanggal & hitungan hari dihitung langsung di `App.jsx`
+  memakai `Intl.DateTimeFormat("id-ID")` dan selisih milidetik
+  (tanpa dependensi tambahan seperti Luxon).
 
 ## Menjalankan Lokal
 
-Karena murni statis, cukup buka `index.html` di browser.
-Untuk menghindari isu path relatif, jalankan server lokal:
+Butuh Node.js 22+.
 
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Lalu buka `http://localhost:8000`.
+Dev server Vite jalan di `http://localhost:5173/setlist-ori/`
+(sesuai `base` pada `vite.config.js`).
+
+Untuk memeriksa hasil produksi:
+
+```bash
+npm run build
+npm run preview
+```
+
+Build menghasilkan `dist/` yang siap di-deploy.
 
 ## Deploy
 
-Site di-host via GitHub Pages dari branch `main`.
+Push ke `main` memicu GitHub Actions
+([.github/workflows/deploy.yml](.github/workflows/deploy.yml)):
+
+1. `npm ci` + `npm run build` di runner (Node 22).
+2. Isi `dist/` di-upload lewat FTP ke Hostinger, ke
+   `/domains/doc.rebornian48.my.id/public_html/setlist-ori/`.
+
+Rewrite SPA dan cache aset diatur `public/.htaccess` yang
+ikut ter-deploy. Kredensial FTP disimpan sebagai GitHub Secrets
+(`FTP_HOST`, `FTP_USER`, `FTP_PASS`).
 
 ## Kredit
 
